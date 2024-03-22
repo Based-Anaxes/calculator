@@ -14,6 +14,5 @@ const operators = {
 };
 
 function operate(operator, num1, num2) {
-    let result = operators[operator](num1, num2);
-    return result;
+    return operators[operator](num1, num2);
 }
