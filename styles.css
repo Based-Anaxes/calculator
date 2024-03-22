@@ -1,0 +1,38 @@
+.calculator {
+    border: 5px solid black;
+    padding: 10px;
+    background-color: gray;
+}
+
+.screen {    
+    display: flex;
+    background-color: lightgreen;
+    justify-content: flex-end;
+    padding: 20px;
+    font-size: xx-large;
+    font-weight: 500;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.numbers {
+    padding: 10px;
+}
+
+.numbers button {
+    padding: 20px;
+}
+
+.operators {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.operators button {
+    padding: 20px;
+}
