@@ -1,12 +1,13 @@
 .calculator {
+    width: fit-content;
+    padding: 20px;
     border: 5px solid black;
-    padding: 10px;
-    background-color: gray;
+    background-color: #0088dd;
 }
 
 .screen {    
     display: flex;
-    background-color: lightgreen;
+    background-color: #9CAF88;
     justify-content: flex-end;
     padding: 20px;
     font-size: xx-large;
@@ -17,6 +18,7 @@
 .buttons {
     display: flex;
     justify-content: center;
+    
 }
 
 .numbers {
@@ -27,12 +29,18 @@
     padding: 20px;
 }
 
+.zero-row button {
+    display: flex;
+    width: 100%;
+}
+
 .operators {
     padding: 10px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column
 }
 
 .operators button {
     padding: 20px;
 }
+
