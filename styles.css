@@ -40,9 +40,9 @@ button div {
     transform: rotate(30deg);
 }
 
-button span {
+div span {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    j
 }
 
