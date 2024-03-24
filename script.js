@@ -1,4 +1,6 @@
-const operators = {
+const numBtns = document.querySelectorAll('.number');
+
+const operations = {
     '+': function(num1, num2) {
         return num1 + num2;
     },
@@ -14,5 +16,5 @@ const operators = {
 };
 
 function operate(operator, num1, num2) {
-    return operators[operator](num1, num2);
+    return operations[operator](num1, num2);
 }
