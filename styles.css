@@ -11,9 +11,7 @@
 }
 
 .display {  
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+    text-align: right;
     background-color: #9CAF88;
     border: 1px black solid;
     font-weight: 500;
