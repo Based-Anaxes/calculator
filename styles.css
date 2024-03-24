@@ -10,15 +10,17 @@
     text-align: center;
 }
 
-.screen {    
-    text-align: right;
-    background-color: #9CAF88;
+.display {  
+    display: flex;
     justify-content: flex-end;
+    align-items: flex-end;
+    background-color: #9CAF88;
     border: 1px black solid;
-    padding: 10px;
-    font-size: xx-large;
     font-weight: 500;
     font-family: 'Courier New', Courier, monospace;
+    padding: 10px 20px;
+    height: 15vh;
+    font-size: 60px;
 }
 
 .buttons {
@@ -28,12 +30,35 @@
 
 button {
     width: 25%;
+    height: 15vh;
+    background-color: white;
+    font-weight: 800;
+    font-size: 28px;
 }
 
 #clear {
     background-color: red;
     color: white;
-    font-weight: 800;
+    width: 75%;
+}
+
+.operator {
+    background-color: black;
+    color: white;
+}
+
+#zero {
     width: 50%;
 }
+
+#equals {
+    width: 50%;
+    background-color: black;
+    color: white;
+}
+
+
+
+
+
 
