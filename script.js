@@ -18,15 +18,15 @@ numBtns.forEach((numBtn) => {
 });
 
 function getNum(numBtn) {
-    digits.push(numBtn.value);
-    //Convert digits to a string and store in num
-    let num = digits.reduce((value, currentDigit) => value + currentDigit);
-    //Store num in displayValue
-    displayValue = num; 
-    //Store displayValue in display,textContent
-    display.textContent = displayValue;
-    //Convert num to an integer and store in num1
-    num1 = Number(num);
-    console.log(num1);
+        digits.push(numBtn.value);
+        //Set a limit on how many digits a user can enter
+        if (digits.length < 10) {
+            //Convert digits to a string and store in displayValue
+            displayValue = digits.reduce((value, currentDigit) => value + currentDigit);
+            //Set displayValue as display's text content
+            display.textContent = displayValue;
+            //Convert displayValue to an integer and store in num1
+            num1 = Number(displayValue);;
+            console.log(num1);
+        }
 }
- 
