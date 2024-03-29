@@ -1,43 +1,28 @@
-//Create an integer variable for num1
-let num1 = 0;
-//Create an integer variable for num2
-let num2 = 0;
-//Create an object for operators
-const operators = {};
-//Create an array variable for digits
-let digits = [];
-//Create a display variable and store the .display element in it
+//Create constants for display element and user input
 const display = document.querySelector('.display');
-//Create a userInput variable and store the .buttons element in it 
 const userInput = document.querySelector('.buttons')
-//Create a string variable for displayValue
-let displayValue = '';
-//Create a variable digit with no value
-let digit; 
-//Create a function getOpperand that takes digit as a parameter
-function getOpperand(digit) {
-    //Store digit in digits
-    digits.push(digit);
-    //If digits is less than 10 
-    if(digits.length < 10) {
-        //Convert digits to a string and store in displayValue 
-        displayValue = digits.reduce((num, current) => num + current);
-	    //Set displayValue as display's text content
-        display.textContent = displayValue; 
-	    //Convert displayValue to a number and store in num1
-        num1 = Number(displayValue);
-        console.log(num1);
+//Create a variable displayText and assign it to display's text content
+let displayText = display.textContent;
+//Create a function to update display based on which button was clicked
+function updateDisplay(event) {
+	//Create variables for the clicked button's value and type
+    let value = event.target.value;
+    let type = event.target.className; 
+	//If displayText is assigned to the string zero and the button that was clicked was a number button 
+    if(displayText === '0' && type === 'number') {
+		//Store value in displayText
+        displayText = value; 
+	//Otherwise if the button that was clicked was a numbers button 
+    } else if (type === 'number') {
+		//Append value to the existing displayText 
+        displayText += value;
+	//Otherwise if the button that was clicked was an operator button and displayText is not an empty string 
+    } else if (type === 'operator') {
+        //Append value to the exisiting displayText followed by a space
+        displayText += value; 
     }
+    //Assign displayText to the display's text content
+    display.textContent = displayText; 
 }
-//Add a click event listener to userInput
-userInput.addEventListener('click', (event) => {
-    	//Create a variable btn and store the button that was clicked in it
-        let btn = event.target; 
-	    //If the user clicked a .number button store it's value in digit
-        if(btn.className == 'number') {
-            digit = btn.value;
-            //Call the getOpperand function
-            getOpperand(digit);
-        }
-}) 
-
+//When the user clicks userInput, call updateDisplay
+userInput.addEventListener('click', updateDisplay);
