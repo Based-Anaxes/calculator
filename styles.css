@@ -53,7 +53,7 @@ button {
     width: 50%;
 }
 
-#equals {
+.equals {
     width: 50%;
     background-color: black;
     color: white;
