@@ -1,28 +1,40 @@
 //Create constants for display element and user input
 const display = document.querySelector('.display');
-const userInput = document.querySelector('.buttons')
-//Create a variable displayText and assign it to display's text content
-let displayText = display.textContent;
-//Create a function to update display based on which button was clicked
-function updateDisplay(event) {
-	//Create variables for the clicked button's value and type
-    let value = event.target.value;
-    let type = event.target.className; 
-	//If displayText is assigned to the string zero and the button that was clicked was a number button 
-    if(displayText === '0' && type === 'number') {
-		//Store value in displayText
-        displayText = value; 
-	//Otherwise if the button that was clicked was a numbers button 
-    } else if (type === 'number') {
-		//Append value to the existing displayText 
-        displayText += value;
-	//Otherwise if the button that was clicked was an operator button and displayText is not an empty string 
-    } else if (type === 'operator') {
-        //Append value to the exisiting displayText followed by a space
-        displayText += value; 
+const userInput = document.querySelector('.buttons');
+//Initialize display text
+let displayText = '0';
+//Create an emoty array variable for digits 
+let digits = [];
+//Create an empty string variable for operator
+let operator = '';
+//Create a variable digit 
+let digit; 
+//Create function updateDisplay that takes digit and operator as parameters
+function updateDisplay(digit, operator) {
+	//Push digit to digits
+    digits.push(digit);
+	//If digits' length is less than ten
+    if(digits.length < 10) {
+		//Convert digits to a string a store in displayText
+        displayText = digits.reduce((num, current) => num + current);
     }
-    //Assign displayText to the display's text content
-    display.textContent = displayText; 
+	//Update display's text content with displayText
+    display.textContent = displayText + operator;
 }
-//When the user clicks userInput, call updateDisplay
-userInput.addEventListener('click', updateDisplay);
+//When the user clicks user input
+userInput.addEventListener('click', (event) => {
+    //Extract the value and class of the clicked button
+    let value = event.target.value;
+    let type = event.target.className;
+	//If a number button was clicked
+    if(type === 'number') {
+		//Store value in digit
+        digit = value;
+    //If an operator buttton was clicked 
+    } else if(type === 'operator') {
+		//Store value in operator 
+        operator = value; 
+    }
+	//Call updateDisplay
+    updateDisplay(digit, operator);
+});
