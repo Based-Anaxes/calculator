@@ -22,9 +22,9 @@ let displayContent = '0';
 
 function handleOperatorInput(btnValue) {
 	operator = btnValue;
-	num1 = Number(displayContent);
-	displayContent = '0';
 	display.textContent = num1 + operator;
+	displayContent = '0';
+	operate(operator, num1, num2);
 }
 
 function handleNumberInput(btnValue) {
@@ -34,16 +34,19 @@ function handleNumberInput(btnValue) {
 	if(displayContent[0] === '0') {
 		displayContent = displayContent.substring(1);
 	}
-	if(operator !== '') {
+	if(operator === '') {
+		num1 = Number(displayContent);
+		display.textContent = num1;
+	} else {
 		num2 = Number(displayContent);
+		display.textContent = operator + num2;
 	}
-	console.log(num2);
-	display.textContent = operator + displayContent;
+	
 }
 
 function operate(operator, num1, num2) {
 	let result = operators[operator](num1, num2);
-	console.log(result);
+	display.textContent = result;
 }
 
 userInput.addEventListener('click', (event) => {
