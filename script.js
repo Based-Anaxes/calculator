@@ -19,12 +19,13 @@ let num1 = 0;
 let num2 = 0; 
 let operator = ''
 let displayContent = '0';
+let result = 0;
 
 function handleOperatorInput(btnValue) {
 	operator = btnValue;
-	display.textContent = num1 + operator;
 	displayContent = '0';
 	operate(operator, num1, num2);
+	num1 = result;
 }
 
 function handleNumberInput(btnValue) {
@@ -41,11 +42,10 @@ function handleNumberInput(btnValue) {
 		num2 = Number(displayContent);
 		display.textContent = operator + num2;
 	}
-	
 }
 
 function operate(operator, num1, num2) {
-	let result = operators[operator](num1, num2);
+	result = operators[operator](num1, num2);
 	display.textContent = result;
 }
 
