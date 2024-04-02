@@ -38,7 +38,7 @@ function handleNumberInput(btnValue) {
 		num2 = Number(displayContent);
 	}
 	console.log(num2);
-	display.textContent = displayContent;
+	display.textContent = operator + displayContent;
 }
 
 function operate(operator, num1, num2) {
