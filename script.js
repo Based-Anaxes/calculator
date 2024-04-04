@@ -63,5 +63,7 @@ userInput.addEventListener('click', (event) => {
 		case 'operator':
 			handleOperatorInput(btnValue);
 			break;
+		case 'equals': 
+			operate(operator, num1, num2);
 	}
 });
