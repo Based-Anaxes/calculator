@@ -38,12 +38,14 @@ function handleNumberInput(btnValue) {
 }
 
 function handleOperatorInput(btnValue) {
-	operator = btnValue;
+    if (num2 !== 0) {
+        operate(operator, num1, num2);
+        num1 = result;
+        num2 = 0;
+    }
+    operator = btnValue;
     displayContent = '0';
-	operate(operator, num1, num2);
-	num1 = result;
-	num2 = 0;
-	console.log(num2);
+    display.textContent = num1 + operator + displayContent;
 }
 
 function operate(operator, num1, num2) {
@@ -59,11 +61,6 @@ userInput.addEventListener('click', (event) => {
 			handleNumberInput(btnValue); 
 			break;
 		case 'operator':
-			if (num1 !== 0 && num2 !== 0) {
-                operate(operator, num1, num2);
-                num1 = result;
-                num2 = 0;
-            };
 			handleOperatorInput(btnValue);
 			break;
 	}
