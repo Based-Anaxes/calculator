@@ -38,7 +38,7 @@ button {
     font-size: 28px;
 }
 
-#clear {
+.clear {
     background-color: red;
     color: white;
     width: 75%;
