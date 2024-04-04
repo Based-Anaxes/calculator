@@ -21,13 +21,6 @@ let operator = ''
 let displayContent = '0';
 let result = 0;
 
-function handleOperatorInput(btnValue) {
-	operator = btnValue;
-	displayContent = '0';
-	operate(operator, num1, num2);
-	num1 = result;
-}
-
 function handleNumberInput(btnValue) {
 	if(displayContent.length < 9) {
 		displayContent += btnValue;
@@ -37,11 +30,20 @@ function handleNumberInput(btnValue) {
 	}
 	if(operator === '') {
 		num1 = Number(displayContent);
-		display.textContent = num1;
+		display.textContent = num1; 
 	} else {
 		num2 = Number(displayContent);
 		display.textContent = operator + num2;
 	}
+}
+
+function handleOperatorInput(btnValue) {
+	operator = btnValue;
+    displayContent = '0';
+	operate(operator, num1, num2);
+	num1 = result;
+	num2 = 0;
+	console.log(num2);
 }
 
 function operate(operator, num1, num2) {
@@ -57,6 +59,11 @@ userInput.addEventListener('click', (event) => {
 			handleNumberInput(btnValue); 
 			break;
 		case 'operator':
+			if (num1 !== 0 && num2 !== 0) {
+                operate(operator, num1, num2);
+                num1 = result;
+                num2 = 0;
+            };
 			handleOperatorInput(btnValue);
 			break;
 	}
