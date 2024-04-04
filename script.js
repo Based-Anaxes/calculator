@@ -21,6 +21,15 @@ let operator = ''
 let displayContent = '0';
 let result = 0;
 
+function handleDecimalInput(btnValue) {
+	if(displayContent.includes('.')){
+		return;
+	} else {
+		displayContent += btnValue;
+		display.textContent = displayContent;
+	}
+}
+
 function handleNumberInput(btnValue) {
 	if(displayContent.length < 9) {
 		displayContent += btnValue;
@@ -48,6 +57,14 @@ function handleOperatorInput(btnValue) {
     display.textContent = num1 + operator + displayContent;
 }
 
+function clearDisplay() {
+	num1 = 0;
+	num2 = 0; 
+	operator = '';
+	displayContent = '0'; 
+	display.textContent = displayContent;
+}
+
 function operate(operator, num1, num2) {
 	result = operators[operator](num1, num2);
 	if(result.toString().length > 9) {
@@ -59,14 +76,6 @@ function operate(operator, num1, num2) {
 	}
 	display.textContent = result;
 	console.log(result);
-}
-
-function clearDisplay() {
-	num1 = 0;
-	num2 = 0; 
-	operator = '';
-	displayContent = '0'; 
-	display.textContent = displayContent;
 }
 
 userInput.addEventListener('click', (event) => {
@@ -84,5 +93,7 @@ userInput.addEventListener('click', (event) => {
 			break; 
 		case 'clear':
 			clearDisplay();
+		case 'decimal':
+			handleDecimalInput(btnValue);
 	}
 });
