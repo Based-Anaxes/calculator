@@ -50,7 +50,14 @@ function handleOperatorInput(btnValue) {
 
 function operate(operator, num1, num2) {
 	result = operators[operator](num1, num2);
+	if(result.toString().length > 9) {
+		result = result.toFixed(2);
+	}
+	if(operator === '/' && num2 === 0) {
+		
+	}
 	display.textContent = result;
+	console.log(result);
 }
 
 function clearDisplay() {
