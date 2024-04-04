@@ -53,6 +53,14 @@ function operate(operator, num1, num2) {
 	display.textContent = result;
 }
 
+function clearDisplay() {
+	num1 = 0;
+	num2 = 0; 
+	operator = '';
+	displayContent = '0'; 
+	display.textContent = displayContent;
+}
+
 userInput.addEventListener('click', (event) => {
 	let btnValue = event.target.value; 
 	let btnClass = event.target.className;
@@ -65,5 +73,8 @@ userInput.addEventListener('click', (event) => {
 			break;
 		case 'equals': 
 			operate(operator, num1, num2);
+			break; 
+		case 'clear':
+			clearDisplay();
 	}
 });
