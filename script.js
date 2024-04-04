@@ -54,7 +54,8 @@ function operate(operator, num1, num2) {
 		result = result.toFixed(2);
 	}
 	if(operator === '/' && num2 === 0) {
-		
+		result = "UNITED AS 1";
+		clearDisplay();
 	}
 	display.textContent = result;
 	console.log(result);
