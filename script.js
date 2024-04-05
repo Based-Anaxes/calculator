@@ -75,7 +75,6 @@ function operate(operator, num1, num2) {
 		clearDisplay();
 	}
 	display.textContent = result;
-	console.log(result);
 }
 
 userInput.addEventListener('click', (event) => {
