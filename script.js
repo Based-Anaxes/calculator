@@ -102,7 +102,15 @@ userInput.addEventListener('click', (event) => {
 
 document.addEventListener('keydown', (event) => {
 	let btnValue = event.key;
-	if(operators.hasOwnProperty(btnValue)) {
+	if (!isNaN(btnValue)) {
+		handleNumberInput(btnValue);
+	} else if (operators.hasOwnProperty(btnValue)) {
 		handleOperatorInput(btnValue);
+	} else if (btnValue === 'Enter') {
+		operate(operator, num1, num2);
+	} else if (btnValue === 'Backspace') {
+		clearDisplay();
+	} else if (btnValue === '.') {
+		handleDecimalInput(btnValue);
 	}
 })
