@@ -44,6 +44,11 @@ button {
     width: 75%;
 }
 
+.backspace {
+    background-color: black;
+    color: white;
+}
+
 .operator {
     background-color: black;
     color: white;
